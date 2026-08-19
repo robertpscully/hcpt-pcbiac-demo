@@ -3,6 +3,12 @@ variable registered_consumers {
         workspace_name = string
         customer_prefix = string
     }))    
+    default = [
+        {
+            workspace_name = "producer_bucket_config_1"
+            customer_prefix = "test"
+        }
+    ]
 }
 
 variable project_id {
