@@ -1,8 +1,8 @@
 
 resource tfe_workspace producers {
     for_each = { for consumer in var.registered_consumers : consumer.workspace_name => {
-        workspace_name = each.value.workspace_name
-        customer_prefix = each.value.customer_prefix
+        workspace_name = consumer.workspace_name
+        customer_prefix = consumer.customer_prefix
     }}
     name = each.value.workspace_name
     project_id = var.project_id
