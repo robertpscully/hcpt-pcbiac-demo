@@ -2,11 +2,10 @@ variable registered_consumers {
     type = list(object({
         workspace_name = string
         customer_prefix = string
-    }))
-    
+    }))    
 }
 
-variable project_name {
+variable project_id {
     type = string
-    description = "Project name to deploy producer workspaces into."
+    description = "Project ID to deploy producer workspaces into."
 }

@@ -1,6 +1,3 @@
-data tfe_project project {
-    name = var.project_name
-}
 
 resource tfe_workspace producers {
     for_each = { for consumer in var.registered_consumers : consumer.workspace_name => {
@@ -8,7 +5,7 @@ resource tfe_workspace producers {
         customer_prefix = each.value.customer_prefix
     }}
     name = each.value.workspace_name
-    project_id = data.tfe_project.project.id
+    project_id = var.project_id
       organization      = data.tfe_organization.scullycorp.name
   working_directory = "/terraform/producer"
   trigger_patterns  = ["/terraform/producer/**/*"]
